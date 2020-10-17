@@ -1,0 +1,44 @@
+{
+  "name": "auth-graphql",
+  "version": "1.0.0",
+  "description": "The code base perform user auth with graphql.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js",
+    "dev": "nodemon --exec node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santanu12saha/auth-graphql.git"
+  },
+  "keywords": [
+    "auth",
+    "graphql",
+    "express",
+    "node"
+  ],
+  "author": "Santanu Saha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santanu12saha/auth-graphql/issues"
+  },
+  "homepage": "https://github.com/santanu12saha/auth-graphql#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^3.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-graphql": "^0.11.0",
+    "express-session": "^1.17.1",
+    "graphql": "^15.3.0",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.10.9",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.5"
+  }
+}
