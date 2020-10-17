@@ -16,7 +16,16 @@ var signOut = async (authInfo) => {
     }
 };
 
+var logIn = async (authInfo) => {
+    try {
+        return await authDao.login(authInfo);
+    } catch (error) {
+        throw new Error(error);
+    }
+};
+
 module.exports = {
     signUp,
-    signOut
+    signOut,
+    logIn
 };

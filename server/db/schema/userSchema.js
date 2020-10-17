@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt-nodejs');
 const crypto = require('crypto');
+const { reject } = require('lodash');
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
@@ -37,9 +38,15 @@ userSchema.pre('save', function save(next) {
 // that hashed password to the one stored in the DB.  Remember that hashing is
 // a one way process - the passwords are never compared in plain text form.
 
-userSchema.methods.comparePassword = function comparePassword (candidatePassword, cb) {
-    bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
-        cb(err, isMatch);
+userSchema.methods.comparePassword = function comparePassword (candidatePassword, cb = () => {}) {
+    return new Promise((resolve, reject) => {
+        bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
+            if(err) {
+                reject(err);
+            }
+            resolve(isMatch);
+            cb(err, isMatch);
+        });
     });
 };
 
