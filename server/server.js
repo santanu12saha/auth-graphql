@@ -15,7 +15,8 @@ const MongoStore = require('connect-mongo')(session);
 const port = process.env.PORT;
 
 const corsOptions = {
-    origin: '*'
+    origin:"http://localhost:3000",
+    credentials: true
 }
 
 const app = express();
